@@ -3,7 +3,7 @@ import { Balance, Block, MerkleProof, Network, NetworkApi, Transaction } from '@
 import { Crypto } from 'ontology-ts-sdk';
 import { decodeAmount } from 'src/popup/utils/number';
 import { getTokenBalance } from '../api/tokenApi';
-import { getClient } from '../network';
+import { getClient } from '../network';
 import { getStore } from '../redux';
 
 export const networkApi: NetworkApi = {

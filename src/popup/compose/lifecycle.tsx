@@ -25,8 +25,8 @@ interface RenderProp<S> {
   render: RenderMethod<S>;
 }
 
-class Component<S> extends React.Component<Props &  RenderProp<S>, {}> {
-  constructor(props: Props &  RenderProp<S>) {
+class Component<S> extends React.Component<Props & RenderProp<S>, {}> {
+  constructor(props: Props & RenderProp<S>) {
     super(props);
 
     const { render, ...rest } = props;

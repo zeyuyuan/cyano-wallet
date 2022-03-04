@@ -21,7 +21,7 @@ import { TokenState } from 'src/redux/settings';
 import { View } from './view';
 
 interface Props {
-  onDel: (contract: string) => void;
+  onDel: (contract: string) => void;
   tokens: TokenState[];
 }
 

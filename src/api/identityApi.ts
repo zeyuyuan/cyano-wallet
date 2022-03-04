@@ -52,7 +52,7 @@ export function decryptDefaultIdentity(wallet: Wallet, password: string, scrypt:
 }
 
 export function hasIdentity(wallet: Wallet) {
-  return wallet.identities.length > 0;
+  return wallet.identities.length > 0;
 }
 
 export function getDefaultIdentity(wallet: Wallet) {

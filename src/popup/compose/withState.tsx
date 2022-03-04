@@ -22,7 +22,7 @@ type RenderMethod<S> = (state: S, setState: (state: S) => void, getState: () => 
 interface Props<S> {
   defaultState: S;
   render: RenderMethod<S>;
-};
+}
 
 class Component<S> extends React.Component<Props<S>, S> {
   constructor(props: Props<S>) {

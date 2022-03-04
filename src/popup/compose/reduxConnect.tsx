@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Cyano Wallet.  If not, see <http://www.gnu.org/licenses/>.
  */
-import * as equal from 'fast-deep-equal';
-import * as PropTypes from 'prop-types';
+import * as equal from 'fast-deep-equal';
+import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { Dispatch, Store, Unsubscribe } from 'redux';
 
@@ -24,12 +24,12 @@ type RenderMethod<S, A> = (reduxProps: S, actions: A, getReduxProps: () => S) =>
 
 interface OuterProps<P, A> {
   render: RenderMethod<P, A>;
-};
+}
 
 interface Props<S, P, A> extends OuterProps<P, A> {
   mapStateToProps: StateToPropsMethod<S, P>;
   mapDispatchToProps: DispatchToPropsMethod<A>;
-};
+}
 
 const subscriptionShape = PropTypes.shape({
   isSubscribed: PropTypes.func.isRequired,
@@ -81,7 +81,7 @@ class Component<S, P, A> extends React.Component<Props<S, P, A>, {}> {
     const store = this.context.store;
 
     const a = mapDispatchToProps(store.dispatch);
-    
+
     const getReduxState = this.getReduxState.bind(this);
     return render(getReduxState(), a, getReduxState);
   }
