@@ -57,7 +57,6 @@ export const SwapView: React.SFC<Props> = (props) => (
                   <SemanticForm.Input
                     type="number"
                     placeholder="0"
-                    step="1"
                     onChange={t.input.onChange}
                     input={{ ...t.input, value: t.input.value }}
                     error={t.meta.touched && t.meta.invalid}

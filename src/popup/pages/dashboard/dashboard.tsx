@@ -29,7 +29,7 @@ import { getAddress } from '../../../api/accountApi';
 import { SwapRequest, TransferRequest, WithdrawOngRequest } from '../../../redux/transactionRequests';
 import { lifecycle, reduxConnect, withProps, withState } from '../../compose';
 import { Actions, GlobalState } from '../../redux';
-import { convertAmountToBN, convertAmountToStr, decodeAmount } from '../../utils/number';
+import { convertAmountToBN, convertAmountToStr, decodeAmount, getIsGt } from '../../utils/number';
 import { DashboardView, Props } from './dashboardView';
 
 interface State {
@@ -126,7 +126,7 @@ const enhancer = (Component: React.ComponentType<Props>) => (props: RouterProps)
             props.history.push('/transfers');
           },
           handleWithdraw: async () => {
-            if (reduxProps.unboundAmount > 0) {
+            if (getIsGt(reduxProps.unboundAmount, '0')) {
               const requestId = uuid();
               // todo: no type check TransferRequest
               await actions.addRequest({

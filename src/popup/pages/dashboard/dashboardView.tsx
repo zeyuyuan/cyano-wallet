@@ -19,6 +19,7 @@ import * as React from 'react';
 import { Button, Image, List } from 'semantic-ui-react';
 import { OEP4TokenAmount } from 'src/api/tokenApi';
 import { AccountLogoHeader, Filler, Spacer, StatusBar, TokenAmountList, View } from '../../components';
+import { getFixed } from '../../utils/number';
 
 export interface Props {
   nepAmount: string;
@@ -66,7 +67,7 @@ export const DashboardView: React.SFC<Props> = (props) => (
             <List.Item key="ont">
               <List.Content floated='right'>
                 <List.Description className="asset-amount">
-                  {props.ontAmount}
+                  {getFixed(props.ontAmount, 4)}
                 </List.Description>
               </List.Content>
               <Image avatar={true} src={require('../../assets/ontology.png')} />
@@ -78,7 +79,7 @@ export const DashboardView: React.SFC<Props> = (props) => (
             <List.Item key="ong">
               <List.Content floated='right'>
                 <List.Description className="asset-amount">
-                  {props.ongAmount}
+                  {getFixed(props.ongAmount, 4)}
                 </List.Description>
                 <h4 onClick={props.handleWithdraw} className="unbound"> {props.unboundAmount} (Claim)</h4>
               </List.Content>

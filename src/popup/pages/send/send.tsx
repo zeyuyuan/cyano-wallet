@@ -47,7 +47,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
 const enhancer = (Component: React.ComponentType<Props>) => (props: RouteComponentProps<any>) =>
   reduxConnect(mapStateToProps, mapDispatchToProps, (reduxProps, actions) => {
     const initAsset: AssetType = get(props.location, 'state.asset', 'ONT');
-    const initAmountNumber: number | undefined = get(props.location, 'state.amount', undefined);
+    const initAmountNumber: string | undefined = get(props.location, 'state.amount', undefined);
     const initRecipient: string | undefined = get(props.location, 'state.recipient', undefined);
 
     const initialValues: InitialValues = {

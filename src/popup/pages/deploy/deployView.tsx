@@ -158,7 +158,6 @@ export const DeployView: React.SFC<Props> = (props) => (
                       <SemanticForm.Input
                         type="number"
                         placeholder={'2500'}
-                        step={'0.00000000001'}
                         onChange={t.input.onChange}
                         input={{ ...t.input, value: t.input.value }}
                         error={t.meta.touched && t.meta.invalid}
@@ -176,7 +175,6 @@ export const DeployView: React.SFC<Props> = (props) => (
                       <SemanticForm.Input
                         type="number"
                         placeholder={'30000'}
-                        step={'0.00000000001'}
                         onChange={t.input.onChange}
                         input={{ ...t.input, value: t.input.value }}
                         error={t.meta.touched && t.meta.invalid}

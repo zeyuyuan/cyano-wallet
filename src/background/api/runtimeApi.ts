@@ -28,6 +28,7 @@ import {
 import { decryptAccount, getAccount } from '../../api/accountApi';
 import { getWallet } from '../../api/authApi';
 import { decryptIdentity } from '../../api/identityApi';
+import { polyfillUnboundOngAmount } from '../../popup/utils/number';
 import { RegisterOntIdRequest, TransferRequest, WithdrawOngRequest } from '../../redux/transactionRequests';
 import Address = Crypto.Address;
 import { getClient, getNodeAddress } from '../network';
@@ -36,11 +37,10 @@ import { getStore } from '../redux';
 export async function getBalance() {
   const state = getStore().getState();
   const address = getAccount(state.wallet.wallet!).address;
-
   const client = getClient();
   const response = await client.getBalanceV2(address);
-  const ont: number = Number(get(response, 'Result.ont'));
-  const ong: number = Number(get(response, 'Result.ong'));
+  const ont: string = get(response, 'Result.ont');
+  const ong: string = get(response, 'Result.ong');
 
   return {
     ong,
@@ -48,14 +48,13 @@ export async function getBalance() {
   };
 }
 
-export async function getUnboundOng() {
+export async function getUnboundOng(): Promise<string> {
   const state = getStore().getState();
   const address = getAccount(state.wallet.wallet!).address;
-
   const client = getClient();
   const response = await client.getUnboundong(address);
-  const unboundOng = Number(get(response, 'Result'));
-  return unboundOng;
+  const amountWithOldDecimal = get(response, 'Result');
+  return polyfillUnboundOngAmount(amountWithOldDecimal);
 }
 
 export async function transfer(request: TransferRequest, password: string) {

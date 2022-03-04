@@ -45,7 +45,7 @@ export async function refreshBalance(store: GlobalStore) {
         }
       }
 
-      store.dispatch(Actions.runtime.setBalance(balance.ong, balance.ont, unboundOng, 0, tokenBalances));
+      store.dispatch(Actions.runtime.setBalance(balance.ong, balance.ont, unboundOng, '0', tokenBalances));
 
       const address = getAddress(walletEncoded);
 

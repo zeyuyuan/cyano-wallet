@@ -18,7 +18,7 @@
 import { Reducer } from 'redux';
 import { RuntimeState, SET_BALANCE, SET_TRANSFERS } from '../../redux/runtime';
 
-const defaultState: RuntimeState = { ongAmount: 0, ontAmount: 0, unboundAmount: 0, nepAmount: 0, transfers: [], tokenAmounts: [] };
+const defaultState: RuntimeState = { ongAmount: '0', ontAmount: '0', unboundAmount: '0', nepAmount: '0', transfers: [], tokenAmounts: [] };
 
 export const runtimeReducer: Reducer<RuntimeState> = (state = defaultState, action) => {
   switch (action.type) {

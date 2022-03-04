@@ -25,6 +25,7 @@ import { identitySignUp } from '../../../../api/identityApi';
 import { RegisterOntIdRequest } from '../../../../redux/transactionRequests';
 import { reduxConnect, withProps } from '../../../compose';
 import { Actions, GlobalState } from '../../../redux';
+import { getIsGte } from '../../../utils/number';
 import { IdentityCreateView, Props } from './identityCreateView';
 
 const mapStateToProps = (state: GlobalState) => ({
@@ -80,10 +81,11 @@ const enhancer = (Component: React.ComponentType<Props>) => (props: RouterProps)
             wif
           });
         },
-        haveEnoughOng: reduxProps.ongAmount >= 0.01,
+        haveEnoughOng: getIsGte(reduxProps.ongAmount, '10000000000000000'), // >= 0.01
       },
       (injectedProps) => <Component {...injectedProps} loading={reduxProps.loading} />,
     ),
   );
+
 
 export const IdentityCreate = enhancer(IdentityCreateView);

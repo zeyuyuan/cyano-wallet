@@ -32,11 +32,11 @@ export interface TokenAmountState {
 }
 
 export interface RuntimeState {
-  ongAmount: number;
-  ontAmount: number;
-  nepAmount: number;
+  ongAmount: string;
+  ontAmount: string;
+  nepAmount: string;
 
-  unboundAmount: number;
+  unboundAmount: string;
   transfers: Transfer[];
 
   tokenAmounts: TokenAmountState[];
@@ -45,6 +45,6 @@ export interface RuntimeState {
 export const SET_BALANCE = 'SET_BALANCE';
 export const SET_TRANSFERS = 'SET_TRANSFERS';
 
-export const setBalance = (ongAmount: number, ontAmount: number, unboundAmount: number, nepAmount: number, tokenAmounts: TokenAmountState[]) => ({ type: SET_BALANCE, ongAmount, ontAmount, unboundAmount, nepAmount, tokenAmounts });
+export const setBalance = (ongAmount: string, ontAmount: string, unboundAmount: string, nepAmount: string, tokenAmounts: TokenAmountState[]) => ({ type: SET_BALANCE, ongAmount, ontAmount, unboundAmount, nepAmount, tokenAmounts });
 
 export const setTransfers = (transfers: Transfer[]) => ({ type: SET_TRANSFERS, transfers });
