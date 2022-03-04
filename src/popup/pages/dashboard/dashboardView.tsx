@@ -62,8 +62,8 @@ export const DashboardView: React.SFC<Props> = (props) => (
     ) : (
         <View orientation="column" fluid={true} content={true} className="spread-around">
           <Spacer />
-          <h1>ONT/ONG</h1>
-          <List className="transferList" divided={true}>
+          <h1 className="dashboard-title">ONT/ONG</h1>
+          <List className="transferList dashboard-list" divided={true}>
             <List.Item key="ont">
               <List.Content floated='right'>
                 <List.Description className="asset-amount">
@@ -91,7 +91,7 @@ export const DashboardView: React.SFC<Props> = (props) => (
             </List.Item>
           </List>
           <Spacer />
-          <h1 className="margin-bottom-custom">OEP-4 Tokens</h1>
+          <h1 className="dashboard-title">OEP-4 Tokens</h1>
           <TokenAmountList tokens={props.tokens} />
           <Spacer />
           <Filler />

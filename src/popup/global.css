@@ -382,10 +382,6 @@ h4.unbound:hover {
   text-align: right;
 }
 
-.margin-bottom-custom {
-  margin-bottom: 0.2em;
-}
-
 .item {
   margin: 5px;
 }
@@ -417,4 +413,14 @@ h4.unbound:hover {
 
 .text-align-center {
   text-align: center;
+}
+
+.dashboard-title {
+  font-size: 1.6em;
+  line-height: 1.6em;
+  min-height: auto;
+}
+
+.dashboard-list {
+  margin: 0!important;
 }
